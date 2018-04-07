@@ -1,0 +1,11 @@
+***NEED TO IMPORT STITCH API***
+<script src="https://s3.amazonaws.com/stitch-sdks/js/library/v3/stable/stitch.min.js"></script>
+
+
+login page must contain a div with the Id "errors"
+login page username text box must have an id "username"
+login page password text box must have an id "password"
+
+cakk lookForUser upon clicking submit
+
+will redirect to "home.html: if successful login. Change this to change the redirect location

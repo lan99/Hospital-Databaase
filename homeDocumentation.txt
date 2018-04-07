@@ -1,0 +1,5 @@
+***NEED TO IMPORT STITCH API***
+<script src="https://s3.amazonaws.com/stitch-sdks/js/library/v3/stable/stitch.min.js"></script>
+
+call loadClient upon body loading
+will load supplies and supply info into div with id "supplies"

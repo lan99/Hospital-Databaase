@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <script src="https://s3.amazonaws.com/stitch-sdks/js/library/v3/stable/stitch.min.js"></script>
+        <script>
+         const clientPromise = stitch.StitchClientFactory.create('hospitalapp-htwsl');
+
+         let client;
+         let db;
+         function displayOnLoad() {
+             clientPromise.then(stitchClient => {
+                 client = stitchClient;
+                 db = client.service('mongodb', 'mongodb-atlas').db('Supplies');
+                 return client.login().then(displayUsers)
+             });
+         }
+
+         function displayUsers() {
+             db.collection('users').find({}).limit(1000).execute().then(docs => {
+                 var html = docs.map(c => "Username: " + c.user + " Password: " + c.password + "<br>").join("");
+                 document.getElementById("users").innerHTML = document.getElementById("users").innerHTML + html;
+
+                 docs.map(c => displayHOSP(c.user));
+
+             });
+         }
+
+         function displayHOSP(collection) {
+             db.collection(collection).find({}).limit(1000).execute().then(docs => {
+
+               html = "Hospital: " + collection;
+               html = html + docs.map(c => "<tr>" +
+                                 "<td>" + c._id + "</td>"
+                                 +"<td>" + c.name+ "</td>"
+                                 +"<td>" + c.brand + "</td>"
+                                 +"<td>" + c.desc + "</td>"
+                                 +"<td>" + c.category + "</td>"
+                                 +"<td>" + c.updated + "</td> </tr>").join("");
+
+                 document.getElementById("users").innerHTML = html;
+             });
+         }
+
+        </script>
+    </head>
+    <body onLoad="displayOnLoad()">
+        <h3>Just For Testing</h3>
+        <div id="users">
+          Users: <br>
+        </div>
+        <div id="hospitals">
+          Hospitals: <br>
+        </div>
+        <hr>
+        <div id="comments"></div>
+        <hr>
+
+    </body>
+</html>
