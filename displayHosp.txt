@@ -1,0 +1,15 @@
+       function displayHOSP(collection) {
+             db.collection(collection).find({}).limit(1000).execute().then(docs => {
+
+               html = "Hospital: " + collection;
+               html = html + docs.map(c => "<tr>" +
+                                 "<td>" + c._id + "</td>"
+                                 +"<td>" + c.name+ "</td>"
+                                 +"<td>" + c.brand + "</td>"
+                                 +"<td>" + c.desc + "</td>"
+                                 +"<td>" + c.category + "</td>"
+                                 +"<td>" + c.updated + "</td> </tr>").join("");
+
+                 document.getElementById("users").innerHTML = html;
+             });
+         }

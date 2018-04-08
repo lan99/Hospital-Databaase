@@ -1,0 +1,126 @@
+body {
+  font-family: 'Roboto Slab', serif;
+  font-size: 15px;
+  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/8vV2rpe/beach-style-blue-background-1080p_qyvzckhb__F0000.png");
+  background-attachment:fixed;
+  text-align: center;
+  font-style: oblique;
+  line-height: 50px;
+}
+
+h1 {
+  margin-top: 40px;
+  font-size: 50px;
+  line-height: 10px;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+h3 {
+  margin: 10px;
+}
+
+hr {
+  background-color: #9da0a5;
+  border-bottom: 0.5px solid #9da0a5;
+}
+
+form, #productInfo, #search, #addUser, #login, #editInfo {
+  margin: center;
+  margin-top: 15x;
+  width: 25%;
+  border: 1.5px solid #9da0a5;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 10px;
+  line-height: 40px;
+  background-color: #f9f9f9;
+}
+
+form:hover, #productInfo:hover, #search:hover, #addUser:hover, #login:hover, #editInfo:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  transition-duration: 1s;
+}
+
+label {
+  display: inline-block;
+  text-align: right;
+  width: 130;
+}
+
+input {
+  display: inline-block;
+  text-align: left;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+  border: 1px solid #9da0a5;
+  border-radius: 10px;
+  font-family: inherit;
+  font-style: inherit;
+}
+
+input:focus {
+  outline:none;
+}
+
+input[type="submit"]:hover {
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition-duration:1s;
+}
+
+#sub {
+  background-image: inherit;
+  font-family: inherit;
+  background-image: none;
+  font-size: 17px;
+  font-weight: 5px;
+  padding: 5px 10px;
+}
+
+table {
+  text-align: center;
+  margin: auto;
+  margin-top: 25px;
+  border-collapse: collapse;
+}
+
+th, td, tr  {
+  padding: 10px;
+}
+
+footer {
+  bottom: 10px;
+  position: relative;
+  border-top: 1.5px solid #9da0a5;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  line-height: 20px;
+  margin-top: 50px;
+}
+
+#links {
+  bottom: 50px;
+  border-top: 1.5px solid #9da0a5;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  position: sticky;
+}
+
+a {
+  margin: 100px;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  color: #7a0099;
+}
+
+a:hover {
+  color: #4561ef;
+}

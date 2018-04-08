@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script src="https://s3.amazonaws.com/stitch-sdks/js/library/v3/stable/stitch.min.js"></script>
+
+        <script src = "login.js"></script>
+    </head>
+    <body onLoad = "lookForUser()">
+        <h3>Just For Testing Login</h3>
+
+        Username: <input id="username" type="text"><br>
+        Password: <input id="password" type = "password">
+
+        <!-- will redirect to homeTester.html or display error -->
+        <input type="submit" onClick="check()">
+
+        <!-- displays any error message-->
+        <div id = "error"><div>
+    </body>
+</html>

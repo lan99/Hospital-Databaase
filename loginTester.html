@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="blue" lang = "en">
+    <head>
+      <link rel="icon" href="http://sweetclipart.com/multisite/sweetclipart/files/health_legal_caduceus_logo_lineart.png">
+
+<title>Hospitall </title>
+        <meta charset = "utf-8"/>
+        <title>Hospitall Login</title>
+        <link href="hospital.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
+        <script src="https://s3.amazonaws.com/stitch-sdks/js/library/v3/stable/stitch.min.js"></script>
+        <script src = "login.js"></script>
+
+    </head>
+
+    <body onload = "lookForUser()">
+      <center>
+      <h1>H o s p i t a l l</h1>
+      <hr>
+      <h3> Welcome </h3>
+
+      <p>New here? Email us at blah@hospitall.com to sign up</p> <br/>
+
+      <div id = "login">
+
+        Username: <input type = "text" id = "username" /> <br>
+          Password: <input type = "password" id = "password" /> <br>
+          <input type = "submit" value = "Enter" onClick = "check()" id = "sub"/>
+      </div>
+
+      <div id = "error"></div>
+
+      <footer>
+        Hospitall is a database meant to allow hospitals to communicate between
+        each other about their supplies and share in the case of natural disasters.
+      </br>
+        &#169; 2018 Sara Garcia-Beech, Emily Dunham, Lindsay An
+      </footer>
+    </body>
+</html>

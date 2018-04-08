@@ -1,58 +1,38 @@
 <html>
     <head>
+      <link rel="icon" href="http://sweetclipart.com/multisite/sweetclipart/files/health_legal_caduceus_logo_lineart.png">
+
+<title>Hospitall </title>
         <script src="https://s3.amazonaws.com/stitch-sdks/js/library/v3/stable/stitch.min.js"></script>
-        <script>
-         const clientPromise = stitch.StitchClientFactory.create('hospitalapp-htwsl');
+        <script src = "newUser.js"></script>
+        <link href="hospital.css" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 
-         let client;
-         let db;
-         function displayOnLoad() {
-             clientPromise.then(stitchClient => {
-                 client = stitchClient;
-                 db = client.service('mongodb', 'mongodb-atlas').db('Supplies');
-                 return client.login().then(displayUsers)
-             });
-         }
-
-         function displayUsers() {
-             db.collection('users').find({}).limit(1000).execute().then(docs => {
-                 var html = docs.map(c => "Username: " + c.user + " Password: " + c.password + "<br>").join("");
-                 document.getElementById("users").innerHTML = document.getElementById("users").innerHTML + html;
-
-                 docs.map(c => displayHOSP(c.user));
-
-             });
-         }
-
-         function displayHOSP(collection) {
-             db.collection(collection).find({}).limit(1000).execute().then(docs => {
-
-               html = "Hospital: " + collection;
-               html = html + docs.map(c => "<tr>" +
-                                 "<td>" + c._id + "</td>"
-                                 +"<td>" + c.name+ "</td>"
-                                 +"<td>" + c.brand + "</td>"
-                                 +"<td>" + c.desc + "</td>"
-                                 +"<td>" + c.category + "</td>"
-                                 +"<td>" + c.updated + "</td> </tr>").join("");
-
-                 document.getElementById("users").innerHTML = html;
-             });
-         }
-
-        </script>
     </head>
-    <body onLoad="displayOnLoad()">
-        <h3>Just For Testing</h3>
-        <div id="users">
-          Users: <br>
-        </div>
-        <div id="hospitals">
-          Hospitals: <br>
-        </div>
+    <body>
+      <center>
+        <h1>H o s p i t a l l</h1>
         <hr>
-        <div id="comments"></div>
-        <hr>
+        <h3>Sign Up</h3>
+        <div id="addUser">
+          <label>Hospital Name: </label><input id="name" type = "text"><br>
+          <label>Address: </label><input id="addr" type = "text"><br>
+          <label>Zip Code: </label><input id="zip" type = "text"><br>
+          <label>Phone Number: </label><input id="phone" type ="text"><br>
+          <label>Email: </label><input id="email" type ="text"><br>
+          <label>Username: </label><input id="username" type="text"><br>
+          <label>Password: </label><input id="password" type = "password"><br>
+        </div>
 
+        <input type="submit" onClick="loadClient()">
+
+        <div id = "message"><div>
+
+        <footer>
+          Hospitall is a database meant to allow hospitals to communicate between
+          each other about their supplies and share in the case of natural disasters.
+        </br>
+          &#169; 2018 Sara Garcia-Beech, Emily Dunham, Lindsay An
+        </footer>
     </body>
 </html>

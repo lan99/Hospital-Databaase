@@ -1,0 +1,70 @@
+
+body{
+  font-family: 'Roboto Slab', serif;
+  font-size: 15px;
+  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/8vV2rpe/beach-style-blue-background-1080p_qyvzckhb__F0000.png");
+  text-align: center;
+  font-style: oblique;
+}
+
+h1 {
+  margin-top: 75px;
+  font-size: 50px;
+  line-height: 10px;
+}
+
+form {
+  margin: center;
+  margin-top: 100px;
+  width: 25%;
+  border: 1.5px solid grey;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  border-radius: 10px;
+  line-height: 25px;
+}
+
+form:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  transition-duration: 1s;
+}
+
+#username, #password {
+  background-color: inherit;
+  border-spacing: 10px;
+  padding-left: 1px;
+}
+
+input {
+  font-family: inherit;
+  font-style: inherit;
+  background-color: #93EBF5;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+a {
+    color:#d683ef;
+    text-decoration: none;
+}
+#sub {
+  background-image: inherit;
+  font-family: inherit;
+  background-image: none;
+  font-size: 17px;
+  font-weight: 5px;
+  padding: 5px 10px;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    background-image: inherit;
+    text-align: center;
+    border-top: 1.5px solid grey;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}

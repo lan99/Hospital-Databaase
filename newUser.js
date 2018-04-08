@@ -7,7 +7,7 @@ let db;
 function loadClient() {
     clientPromise.then(stitchClient => {
         client = stitchClient;
-        db = client.service('mongodb', 'mongodb-atlas').db('Supplies');
+        db = client.service('mongodb', 'mongodb-atlas').db('HospitalDatabase');
 
           client.login().then(addUser());
     });
@@ -17,26 +17,41 @@ function loadClient() {
 function addUser(){
 
   //get the username and password
+  var name =  document.getElementById("name").value;
+  var addr =  document.getElementById("addr").value;
+  var zip =  document.getElementById("zip").value;
+  var phone = document.getElementById("phone").value;
+  var email = document.getElementById("email").value;
   var user =  document.getElementById("username").value;
   var pass =  document.getElementById("password").value;
 
-  var success = 0;
-  db.collection('users').insertOne({ 'user' : user , 'password': pass }).then(function(){
+  if (name != "" && addr != "" &&  user != "" &&  pass != "" && zip != "" && phone != "" && email != ""){
+    var success = 0;
+    var rightVars =  0;
 
-    db.createCollection(user, function(err, res){
+    if (!Number.isInteger(parseInt(zip)) || !Number.isInteger(parseInt(zip)) || phone.toString().length != 10 || zip.toString().length != 5) {
+      rightVars = 1;
+    }
 
-      if (err) throw err;
-      document.getElementById("message").innerHTML = user +" added!";
+    if (rightVars != 1) {
+      db.collection('Hospitals').insertOne({'zip':zip, 'phone':phone, 'address':addr, 'name':name, 'user':user, 'email':email, 'password':pass, 'supplies': []}).then(function(){
 
-    });
-    success = 1;
-    return;
-  });
+        document.getElementById("name").value = "";
+        document.getElementById("addr").value = "";
+        document.getElementById("zip").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("message").innerHTML = user +" added!";
+        success = 1;
+        return;
+      });
+    }
+  }
 
-if (success == 0){
-
-  document.getElementById("message").innerHTML = user +" could not be added!";
-
-}
+  if (success == 0) {
+    document.getElementById("message").innerHTML = "Request could not be sent. Check for errors.";
+  }
   return;
 }
