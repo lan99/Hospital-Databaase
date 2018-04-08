@@ -39,62 +39,8 @@ function searchSupply(){
   var docs;
 
   exist = 0;
-  if (hName != ""){
 
-  /*if both name and zip*/
-    if (zip != ""){
-
-          docs = db.collection('Hospitals').find(  {
-
-              $and: [
-
-                 {'user' : { $ne: user}},
-
-                 {'name' : hName},
-
-                 {'zip':zip}
-               ]
-
-            }).limit(2000).execute();
-          }
-
-  /*if only name*/
-    else {
-
-      docs = db.collection('Hospitals').find(  {
-
-          $and: [
-
-             {'user' : { $ne: user}},
-
-             {'name' : hName}           ]
-
-        }).limit(2000).execute();
-  }
-}
-  else {
-
-    /*if only zip*//*
-    if (zip != ""){
-
-          db.collection('Hospitals').find({
-
-              $and: [
-
-                 {'user' : { $ne: user}},
-                 {"zip": zip}
-               ]
-
-            }).limit(2000).execute();
-          }
-
-  /*if neither Zip nor name*/
-    //  else {
-
-        docs = db.collection('Hospitals').find( {'user' : { $ne: user}}).limit(2000).execute();
-    //  }
-
-  }
+  docs = db.collection('Hospitals').find( {'user' : { $ne: user}}).limit(2000).execute();
 
 var html = "<table border = '1'>";
 html = html + "<th>Hospital</th> <th> Address </th> <th> Zip Code </th> <th> Phone</th><th>Email</th><th> Product ID</th> <th> Product Name</th><th>Product Brand</th><th>Product Quantity</th>";
@@ -104,6 +50,16 @@ if (docs){
   docs.then(doc => {
 
         doc.map(c => {
+
+
+          if (hName != ""){
+
+            if (c.name.toLowerCase() != hName.toLowerCase()){
+
+console.log(c.name.toLowerCase());
+              return;
+            }
+          }
 
           console.log(c.zip);
 
@@ -115,7 +71,7 @@ if (docs){
 
             if (name != ""){
 
-              if (supply.name != name){
+              if (supply.name.toLowerCase() != name.toLowerCase()){
 
                 return false;
               }
@@ -133,7 +89,7 @@ if (docs){
 
             if (brand != ""){
 
-              if (supply.brand != brand){
+              if (supply.brand.toLowerCase() != brand.toLowerCase()){
 
                 return false;
               }
@@ -142,7 +98,7 @@ if (docs){
 
             if (cat != ""){
 
-              if (supply.cat != cat){
+              if (supply.cat.toLowerCase() != cat.toLowerCase()){
 
                 return false;
               }

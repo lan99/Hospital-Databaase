@@ -21,7 +21,7 @@
 
          function displayUsers() {
 
-            /*db.collection('Hospitals').deleteMany({'user' : "holycross"});*/
+            db.collection('Hospitals').deleteMany({'user' : "holycross"});
 
            var html = "";
             db.collection('Hospitals').find({}).limit(1000).execute().then(docs => {
